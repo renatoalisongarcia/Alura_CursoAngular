@@ -1,0 +1,19 @@
+<header class="fixed-top">
+    <nav class="navbar navbar-light bg-white">
+        <a class="navbar-brand">ALURAPIC</a>
+       
+        <!--Com ASYNC é possível pegar o valor do Observable sem dar subscribe -->
+        <div *ngIf="(user$ | async) as user; else login">
+            <i class="fa fa-user-circle"></i>
+            <a class="mr-1">{{user.name}}</a>
+            <a (click)="logout()" style="cursor: pointer;">(Deslogar)</a>
+            </div>
+    
+            <ng-template #login>
+                <span class="navbar-text">
+                   <a [routerLink]="['']">Please, login! </a>
+                </span>
+            </ng-template>
+
+    </nav>
+</header>
